@@ -17,22 +17,27 @@ Demonstrating usage of Tailwind CSS in a Gatsby project.
     npm install --save gatsby-plugin-postcss
 
 ### 5. Include Postcss-plugin to gatsby-config.js
-    plugins: [`gatsby-plugin-postcss`]
+    plugins: [`gatsby-plugin-postcss`,]
 
 ### 6. Create postcss.config.js to the project root
     module.exports = () => (
       {
-        plugins: [require('tailwindcss')],
+        plugins: [require('tailwindcss'),],
       }
     );
 
-### 7. Add a custom css-file (e.g. /src/styles/index.css)
+### 7. Add a custom css-file (e.g. ./src/styles/index.css)
     @tailwind base;
     @tailwind components;
     @tailwind utilities;
 
 ### 8. Include the custom css-file to the build in gatsby-browser.js:
     import './src/styles/index.css';
+
+### 9. Enable css purging for the build in tailwind.config-js:
+    module.exports = {
+        purge: ['.src/pages/*.js',],
+    }
 
 ## Read more
 Tailwind CSS: https://tailwindcss.com/  
